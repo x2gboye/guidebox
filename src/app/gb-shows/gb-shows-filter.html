@@ -1,0 +1,32 @@
+<uib-tabset active="vm.activeTab" justified="true">
+    <uib-tab index="0" heading="Channels">
+        <div class="panel panel-default panel-tab">
+            <div class="panel-body">
+                <select class="form-control"
+                        ng-options="channel as channel.name for channel in vm.GbShowsService.channels"
+                        ng-model="vm.GbShowsService.selectedChannel"
+                        ng-change="vm.selectChannel()">
+                </select>
+            </div>
+        </div>
+    </uib-tab>
+    <uib-tab index="1" heading="Search">
+        <div class="panel panel-default panel-tab">
+            <div class="panel-body">
+                <form ng-submit="vm.search()">
+                    <div class="input-group">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Search"
+                               ng-model="vm.GbShowsService.searchText"/>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </uib-tab>
+</uib-tabset>

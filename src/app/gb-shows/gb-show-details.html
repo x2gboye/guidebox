@@ -1,0 +1,58 @@
+<div class="container">
+
+    <h2>{{vm.show.title}} <small>({{vm.show.first_aired | date : 'yyyy'}})</small></h2>
+
+    <hr>
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="thumbnail">
+                <img ng-src="{{vm.show.artwork_448x252}}">
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <p class="text-muted">
+                {{vm.show.overview}}
+            </p>
+            <h4>Cast</h4>
+            <small ng-repeat="member in vm.show.cast | limitTo: 10"
+                  class="text-muted">
+                <a ng-link="['PersonDetails', {id: member.id}]">{{member.name}}</a> ({{member.character_name}}),
+            </small>
+        </div>
+
+    </div>
+
+    <br class="clearfix">
+
+    <uib-accordion close-others="false">
+
+        <div uib-accordion-group
+             class="panel-default"
+             heading="Clips"
+             is-open="vm.clipsOpen"
+             is-disabled="false">
+
+            <gb-clips id="vm.id" ng-if="vm.clipsOpen"></gb-clips>
+
+        </div>
+
+        <div uib-accordion-group
+             class="panel-default"
+             heading="Episodes"
+             is-open="vm.episodesOpen"
+             is-disabled="false">
+
+            <gb-episodes id="vm.id" ng-if="vm.episodesOpen"></gb-episodes>
+
+        </div>
+
+    </uib-accordion>
+
+
+
+
+</div>
+

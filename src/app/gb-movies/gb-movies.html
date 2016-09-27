@@ -1,0 +1,50 @@
+<div class="container">
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form ng-submit="vm.search()">
+                <div class="input-group">
+                    <span class="input-group-btn"
+                          ng-if="vm.GbMoviesService.searchText">
+                        <button type="button"
+                                class="btn btn-primary btn-block"
+                                ng-click="vm.clearSearch()">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </span>
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Search"
+                           ng-model="vm.GbMoviesService.searchText"/>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row"
+         infinite-scroll="vm.getMovies()"
+         infinite-scroll-disabled="vm.busy">
+
+        <div class="col-sm-4"
+             ng-repeat="movie in vm.movies">
+
+            <a class="thumbnail" ng-href="http://www.imdb.com/title/{{movie.imdb}}" target="_blank">
+                <div class="caption">
+                    <h4 class="text-center">{{movie.title}}</h4>
+                </div>
+                <img ng-src="{{movie.poster_120x171}}">
+                <br/>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

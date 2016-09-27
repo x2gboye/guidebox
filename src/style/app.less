@@ -1,0 +1,99 @@
+@import "../../node_modules/bootswatch/darkly/variables.less";
+@import "../../node_modules/slick-carousel/slick/slick.less";
+@import "../../node_modules/slick-carousel/slick/slick-theme.less";
+
+@content-padding:   15px;
+@nav-width:         200px;
+
+.app-container {
+  padding: @content-padding;
+}
+
+.side-nav {
+  display: block;
+  position: fixed;
+  padding: @content-padding;
+  width: @nav-width;
+  top:0;
+  bottom: 0;
+  left: 0;
+  background: @gray;
+  box-shadow: inset -7px 0 9px -7px rgba( red(@gray-base), green(@gray-base), blue(@gray-base), 0.95 ) ;
+
+  .nav .ng-link-active {
+    background: @brand-primary;
+  }
+
+
+}
+.content {
+  margin-left: @nav-width;
+  padding: @content-padding;
+}
+
+
+
+#filter-bar {
+  .navbar-form {
+    @media(min-width: @screen-lg-min) {
+      width: 100%;
+    }
+    .form-group {
+      @media(min-width: @screen-lg-min) {
+        margin-top: 5px;
+        width: 25%;
+        text-align: center;
+        &:last-child {
+          width: 15%;
+        }
+      }
+    }
+  }
+}
+
+.thumbnail {
+  background: @gray-base;
+
+  .caption {
+    h4, h6 {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+}
+
+.clips-container {
+  min-height: 218px;
+}
+
+.panel-tab {
+  border-top:0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.panel > .panel-heading > h4.panel-title > a {
+  display: block;
+}
+
+.mb0 {
+  margin-bottom: 0;
+}
+
+.mv {
+  margin-top: @padding-base-vertical;
+  margin-bottom: @padding-base-vertical;
+}
+
+.timeline-Widget {
+  .timeline-Header {
+    display: none !important;
+  }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+

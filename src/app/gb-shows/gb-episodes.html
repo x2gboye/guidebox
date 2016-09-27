@@ -1,0 +1,49 @@
+
+
+<div>
+
+    <div class="text-center mv">
+        <p>Season:</p>
+        <div class="btn-group">
+            <button class="btn btn-default"
+                    ng-repeat="season in vm.totalSeasons"
+                    ng-class="{ 'active': season == vm.currentSeason }"
+                    ng-click="vm.changeSeason(season)">
+                {{season}}
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table table-striped">
+
+            <tbody>
+                <tr ng-repeat="episode in vm.episodes | orderBy:'episode_number'">
+                    <td width="200">
+                        <div class="thumbnail">
+                            <img ng-src="{{episode.thumbnail_208x117}}">
+                            <div class="caption">
+                                <p class="text-center">
+                                    S{{episode.season_number}}, E{{episode.episode_number}}
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <h5>
+                            {{episode.title}}
+                            <span class="pull-right text-muted">{{episode.first_aired | date:'MM/dd/yyyy'}}</span>
+                        </h5>
+                        <p class="text-muted">
+                            {{episode.overview}}
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
